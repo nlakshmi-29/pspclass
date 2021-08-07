@@ -1,0 +1,385 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[49]:
+
+
+import pandas as pd 
+
+
+# In[50]:
+
+
+f=pd.read_excel('Students_grades.xlsx')
+
+
+# In[51]:
+
+
+print(f)
+
+
+# In[52]:
+
+
+type(f)
+
+
+# In[53]:
+
+
+def sgpa(rollno):
+    s=0
+    i=f['ECS463'][rollno-1]
+    if i=='0':
+        s=s+10
+    if i=='A+':
+        s=s+9
+    if i=='A':
+        s=s+8
+    if i=='B+':
+        s=s+7
+    if i=='B':
+        s=s+6
+    if i=='C':
+        s=s+5
+    if i=='P':
+        s=s+4
+    if i=='':
+        s=s+0
+        
+    t=0
+    i=f['EEC442'][rollno-1]
+    if i=='O':
+        t=t+10
+    if i=='A+':
+        t=t+9
+    if i=='A':
+        t=t+8
+    if i=='B+':
+        t=t+7
+    if i=='B':
+        t=t+6
+    if i=='C':
+        t=t+5
+    if i=='P':
+        t=t+4
+    if i=='':
+        t=t+0
+        
+    u=0
+    i=f['EEC458'][rollno-1]
+    if i=='O':
+        u=u+10
+    if i=='A+':
+        u=u+9
+    if i=='A':
+        u=u+8
+    if i=='B+':
+        u=u+7
+    if i=='B':
+        u=u+6
+    if i=='C':
+        u=u+5
+    if i=='P':
+        u=u+4
+    if i=='':
+        u=u+0
+        
+    v=0
+    i=f['EEC492'][rollno-1]
+    if i=='O':
+        v=v+10
+    if i=='A+':
+        v=v+9
+    if i=='A':
+        v=v+8
+    if i=='B+':
+        v=v+7
+    if i=='B':
+        v=v+6
+    if i=='C':
+        v=v+5
+    if i=='P':
+        v=v+4
+    if i=='':
+        v=v+0
+        
+    w=0
+    i=f['EEC494'][rollno-1]
+    if i=='O':
+        v=v+10
+    if i=='A+':
+        v=v+9
+    if i=='A':
+        v=v+8
+    if i=='B+':
+        v=v+7
+    if i=='B':
+        v=v+6
+    if i=='C':
+        v=v+5
+    if i=='P':
+        v=v+4
+    if i=='':
+        v=v+0
+        
+    print('SGPA of ROll Number ',rollno,' is ',s+t+u+v+w)
+
+
+# In[54]:
+
+
+sgpa(1)
+
+
+# In[55]:
+
+
+for i in f['Roll Number']:
+    sgpa(i)
+
+
+# In[56]:
+
+
+f['ECS463']
+
+
+# In[57]:
+
+
+for i in f['Roll Number']:
+    sgpa(i)
+
+
+# In[58]:
+
+
+f['ECS463']
+
+
+# In[59]:
+
+
+ograde=0
+for i in f['ECS463']:
+    if i=='0':
+        ograde+=1
+aplus=0
+for i in f['ECS463']:
+    if i=='A+':
+        aplus+=1
+
+agrade=0
+for i in f['ECS463']:
+    if i=='A':
+        agrade+=1
+
+bplus=0
+for i in f['ECS463']:
+    if i=='B+':
+        bplus+=1
+
+bgrade=0
+for i in f['ECS463']:
+    if i=='B':
+        bgrade+=1
+
+cgrade=0
+for i in f['ECS463']:
+    if i=='C':
+        cgrade+=1
+
+pgrade=0
+for i in f['ECS463']:
+    if i=='P':
+        pgrade+=1
+
+fail=0
+for i in f['ECS463']:
+    if i=='F':
+        fail+=1
+
+
+# In[60]:
+
+
+ograde
+
+
+# In[61]:
+
+
+agrade
+
+
+# In[62]:
+
+
+aplus
+
+
+# In[63]:
+
+
+bgrade
+
+
+# In[64]:
+
+
+bplus
+
+
+# In[65]:
+
+
+cgrade
+
+
+# In[66]:
+
+
+pgrade
+
+
+# In[67]:
+
+
+fail
+
+
+# In[68]:
+
+
+import matplotlib.pyplot as pl
+
+
+# In[69]:
+
+
+x=5
+
+
+# In[70]:
+
+
+a=[]
+
+
+# In[71]:
+
+
+a.append(x)
+
+
+# In[72]:
+
+
+a
+
+
+# In[73]:
+
+
+x=[]
+
+
+# In[74]:
+
+
+x.append(ograde)
+
+
+# In[75]:
+
+
+x
+
+
+# In[76]:
+
+
+x.append(aplus)
+
+
+# In[77]:
+
+
+x
+
+
+# In[78]:
+
+
+x.append(agrade)
+
+
+# In[79]:
+
+
+x
+
+
+# In[80]:
+
+
+x.append(bplus)
+
+
+# In[81]:
+
+
+x
+
+
+# In[82]:
+
+
+x.append(bgrade)
+
+
+# In[83]:
+
+
+x.append(cgrade)
+
+
+# In[84]:
+
+
+x.append(pgrade)
+
+
+# In[85]:
+
+
+x.append(fail)
+
+
+# In[86]:
+
+
+x
+
+
+# In[87]:
+
+
+pl.bar(1,x[0])
+pl.bar(2,x[1])
+pl.bar(3,x[2])
+pl.bar(4,x[3])
+pl.bar(5,x[4])
+pl.bar(6,x[5])
+pl.bar(7,x[6])
+pl.bar(8,x[7])
+pl.legend(labels=['O','A+','A','B+','B','C','P','F'])
+
+
+# In[ ]:
+
+
+
+
